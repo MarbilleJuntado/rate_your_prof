@@ -1,0 +1,7 @@
+<% content_for :head do -%>
+  <%= javascript_pack_tag 'form_vue' %>
+<% end -%>
+<%= simple_form_for @course do |f| %>
+  <%= f.input :name, label: "Course Title" %>
+  <%= f.button :submit %>
+<% end %>

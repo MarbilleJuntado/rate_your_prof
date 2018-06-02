@@ -1,0 +1,7 @@
+<%= javascript_pack_tag 'index' %>
+<div id="index">
+  <% @courses.each do |course| %>
+    <h2><%= link_to course.name, course_path(course) %></h2>
+  <% end %>
+  <%= link_to "Add Course", new_course_path %>
+</div>

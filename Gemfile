@@ -11,6 +11,14 @@ gem 'sqlite3'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use simple_form to generate forms
+gem 'simple_form', '~> 4.0', '>= 4.0.1'
+# Use Vuejs
+gem 'vuejs-rails'
+# Use jquery
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+# Use bootstap SASS for stylesheets
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
