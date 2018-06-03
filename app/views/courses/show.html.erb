@@ -1,4 +1,7 @@
 <h2><%= @course.name %></h2>
+<% @course.professors.each do |professor| %>
+  <h3><%= professor.name %></h3>
+<% end %>
 
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_course_path(@course) %>

@@ -3,5 +3,7 @@
 <% end -%>
 <%= simple_form_for @course do |f| %>
   <%= f.input :name, label: "Course Title" %>
+  <%= f.collection_check_boxes :professor_ids, Professor.all, :id, :name %>
+  <br>
   <%= f.button :submit %>
 <% end %>

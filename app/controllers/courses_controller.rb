@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
   before_action :search_course, only: [:show, :edit, :update, :destroy]
 
+  @professors = Professor.all.order("created_at DESC")
+
   def index
     @courses = Course.all.order("created_at DESC")
     respond_to do |format|
@@ -42,7 +44,7 @@ class CoursesController < ApplicationController
 
   private
     def course_params
-      params.require(:course).permit(:name)
+      params.require(:course).permit(:name, :professor_ids => [])
     end
 
     def search_course

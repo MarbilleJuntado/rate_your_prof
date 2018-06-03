@@ -1,0 +1,9 @@
+<%= javascript_pack_tag 'index' %>
+<div id="index">
+  <% @professors.each do |professor| %>
+    <h2><%= link_to professor.name, professor_path(professor) %></h2>
+  <% end %>
+  <%= link_to "Add Professor", new_professor_path %>
+  <br>
+  <%= link_to "List of Courses", root_path %>
+</div>
