@@ -1,7 +1,12 @@
 <%= javascript_pack_tag 'index' %>
 <div id="index">
-  <% @professors.each do |professor| %>
-    <h2><%= link_to professor.name, professor_path(professor) %></h2>
+  <h1>Professors</h1>
+  <% if @professors.empty? %>
+    <h2>There are no existing professors</h2>
+  <% else %>
+    <% @professors.each do |professor| %>
+      <h2><%= link_to professor.name, professor_path(professor) %></h2>
+    <% end %>
   <% end %>
   <br>
   <%= link_to "List of Courses", root_path %>

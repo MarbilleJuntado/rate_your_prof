@@ -39,6 +39,11 @@ class ProfessorsController < ApplicationController
     end
   end
 
+  def destroy
+    @professor.destroy
+    redirect_to professors_path
+  end
+
   private
     def professor_params
       params.require(:professor).permit(:name, :course_ids => [])

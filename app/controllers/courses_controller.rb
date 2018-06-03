@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = current_user.courses.build
+    @professors = Professor.all.map{ |c| [c.name, c.id] }
   end
   
   def create
@@ -24,7 +25,6 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to root_path
     else
-      Rails.logger.info("#{@course.errors.full_messages}")
       render 'new'
     end
   end
@@ -41,6 +41,8 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @course.destroy
+    redirect_to root_path
   end
 
   private

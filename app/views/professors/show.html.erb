@@ -1,8 +1,23 @@
 <h2><%= @professor.name %></h2>
-<% @professor.courses.each do |course| %>
-  <h3><%= course.name %></h3>
-<% end %>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Courses</th>
+      <th scope="col">Reviews</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @professor.courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><a href="#">Add Review</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
 <%= link_to "Back", professors_path %>
-<%= link_to "Edit", edit_professor_path(@professor) %>
-<%= link_to "Delete", professor_path(@professor), method: :delete, data: { confirm: "Would you like to remove this professor? " } %>
+<% if user_signed_in? %>
+  <%= link_to "Edit", edit_professor_path(@professor) %>
+  <%= link_to "Delete", professor_path(@professor), method: :delete, data: { confirm: "Would you like to remove this professor? " } %>
+<% end %>

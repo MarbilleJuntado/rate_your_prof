@@ -3,9 +3,14 @@
 <% end -%>
 <%= simple_form_for @professor do |f| %>
   <%= f.input :name, label: "Professor Name" %>
-  <label>Courses</label>
-  <br>
-  <%= f.collection_check_boxes :course_ids, Course.all, :id, :name %>
-  <br>
+  <% if params[:action] == "edit" %>
+    <label>Courses</label>
+    <br>
+    <%= f.collection_check_boxes :course_ids, Course.all, :id, :name do |c| %>
+      <%= c.label {c.check_box + c.text} %>
+      <br>
+    <% end %>
+    <br>
+  <% end %>
   <%= f.button :submit %>
 <% end %>
