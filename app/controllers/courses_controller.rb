@@ -15,15 +15,16 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
+    @course = current_user.courses.build
   end
   
   def create
-    @course = Course.new(course_params)
+    @course = current_user.courses.build(course_params)
 
     if @course.save
       redirect_to root_path
     else
+      Rails.logger.info("#{@course.errors.full_messages}")
       render 'new'
     end
   end

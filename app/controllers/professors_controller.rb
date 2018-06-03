@@ -15,11 +15,11 @@ class ProfessorsController < ApplicationController
   end
 
   def new
-    @professor = Professor.new
+    @professor = current_user.professors.build
   end
 
   def create
-    @professor = Professor.new(professor_params)
+    @professor = current_user.professors.build(professor_params)
 
     if @professor.save
       redirect_to professors_path
