@@ -10,7 +10,15 @@
     <% @course.professors.each do |professor| %>
       <tr>
         <td><%= professor.name %></td>
-        <td><a href="#">Add Review</a></td>
+        <td>
+          <%
+            ratings = Review.where(:course_id => @course.id, :professor_id => professor.id).pluck(:rating)
+            average = ratings.inject { |sum, el| sum + el }.to_f / ratings.size
+            average = average.nan? ? 'No reviews' : average
+          %>
+          <a href="/reviews/explore/course/<%= @course.id %>/professor/<%= professor.id %>"><%= average %></a>
+        </td>
+        <td><%= link_to "Add Review", new_review_path(course_id: @course.id, professor_id: professor.id) %></td>
       </tr>
     <% end %>
   </tbody>

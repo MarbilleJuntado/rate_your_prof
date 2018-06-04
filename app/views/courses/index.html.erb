@@ -1,13 +1,10 @@
-<%= javascript_pack_tag 'index' %>
-<div id="index">
-  <h1>Courses</h1>
-  <% if @courses.empty? %>
-    <h2>There are no existing courses</h2>
-  <% else %>
-    <% @courses.each do |course| %>
-      <h2><%= link_to course.name, course_path(course) %></h2>
-    <% end %>
+<h1>Courses</h1>
+<% if @courses.empty? %>
+  <h2>There are no existing courses</h2>
+<% else %>
+  <% @courses.each do |course| %>
+    <h2><%= link_to course.name, course_path(course) %></h2>
   <% end %>
-  <br>
-  <%= link_to "List of Professors", professors_path %>
-</div>
+<% end %>
+<br>
+<%= link_to "List of Professors", professors_path %>

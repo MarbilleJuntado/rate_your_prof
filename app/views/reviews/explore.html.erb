@@ -1,0 +1,19 @@
+<h3>Course: <%= @course = Course.find(params[:course_id]).name %></h3>
+<h3>Professor: <%= @professor = Professor.find(params[:professor_id]).name %></h3>
+<% @reviews = Review.where(course_id: params[:course_id], professor_id: params[:professor_id]) %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Rating</th>
+      <th scope="col">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.rating %></td>
+        <td><%= review.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

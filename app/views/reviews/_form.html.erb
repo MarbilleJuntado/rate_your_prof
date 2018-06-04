@@ -1,0 +1,8 @@
+<%= simple_form_for @review do |f| %>
+  <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+  <%= f.input :comment %>
+  <%= f.hidden_field :course_id, :value => params[:course_id]%>
+  <%= f.hidden_field :professor_id, :value => params[:professor_id] %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.button :submit %>
+<% end %>
