@@ -1,6 +1,6 @@
-# README
+# Rate Your Prof
 
-A Ruby and Rails application that allows users to rate professors in the courses that they have taught.
+A Ruby on Rails application that allows users to rate professors in the courses that they have taught.
 
 Setup:
 
