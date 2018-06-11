@@ -12,6 +12,10 @@ class CoursesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { @course }
+      format.json { render :json => @course }
+    end
   end
 
   def new

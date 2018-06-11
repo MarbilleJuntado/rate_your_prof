@@ -1,10 +1,12 @@
-<h1>Courses</h1>
-<% if @courses.empty? %>
-  <h2>There are no existing courses</h2>
-<% else %>
-  <% @courses.each do |course| %>
-    <h2><%= link_to course.name, course_path(course) %></h2>
-  <% end %>
-<% end %>
-<br>
-<%= link_to "List of Professors", professors_path %>
+<%= javascript_pack_tag 'data_index' %>
+<div id="index">
+  <h1>Courses</h1>
+  <h2 v-if="!courses">There are no existing courses</h2>
+  <div v-else>
+    <h2 v-for="course of courses">
+      <a :href="'/courses/' + course.id">{{ course.name }}</a>
+    </h2>
+  </div>
+  <br>
+  <%= link_to "List of Professors", professors_path %>
+</div>
